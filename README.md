@@ -1,4 +1,4 @@
-# Chev's Garage - https://www.chevsgarage.com/
+# PickUpPro 
 
  A Parent Pickup app for students who don't have a form of communicating with their parents afterschool.
 
