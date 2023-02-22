@@ -1,0 +1,40 @@
+@model Admin
+<link rel="stylesheet" href="~/css/parentsAndAdmins.css"></link>
+<div class="table-container">
+
+@if(@Model.Students.Count >= 1)
+{
+    <h1 id="banner-title" class="mb-5 dashboard-title">Students To Confirm</h1>
+    <table class="table">
+        <tr class="table-header">
+            <th>Student's Name</th>
+            <th>Number</th>
+            <th>Confirm or Deny</th>
+            <th>Parent Name</th>
+        </tr>
+        
+        <tbody class="table-content">
+    @foreach (Student student in @Model.Students)
+    {
+        <tr class="table-row">
+            <td class="table-data">@student.FullName()</td>
+            <td class="table-data">@student.StudentNumber</td>
+            <td class="d-flex align-items-center justify-content-around">
+                <form asp-controller="Admins" asp-action="ConfirmStudent" asp-route-editedStudentId="@student.StudentId" method="POST">
+                <button class="btn btn-success">Confirm</button>
+                </form>
+                <form asp-controller="Admins" asp-action="DenyStudent" asp-route-editedStudentId="@student.StudentId" method="POST">
+                <button class="btn btn-danger">Deny</button>
+                </form>
+            </td>
+            <td class="table-data">@student.ParentFullName</td>
+        </tr>
+    }
+        </tbody>
+    </table>
+}
+@if(@Model.Students.Count < 1) 
+{
+    <h3 id="banner-title">There are no Students to confirm to the database.</h3>
+}
+</div>

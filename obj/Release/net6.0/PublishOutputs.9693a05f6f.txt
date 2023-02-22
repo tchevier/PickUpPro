@@ -1,0 +1,13 @@
+/Users/tchevier3/Desktop/Github/PickUpApp/bin/Release/net6.0/publish/PickUpApp
+/Users/tchevier3/Desktop/Github/PickUpApp/bin/Release/net6.0/publish/appsettings.Development.json
+/Users/tchevier3/Desktop/Github/PickUpApp/bin/Release/net6.0/publish/appsettings.json
+/Users/tchevier3/Desktop/Github/PickUpApp/bin/Release/net6.0/publish/PickUpApp.dll
+/Users/tchevier3/Desktop/Github/PickUpApp/bin/Release/net6.0/publish/PickUpApp.runtimeconfig.json
+/Users/tchevier3/Desktop/Github/PickUpApp/bin/Release/net6.0/publish/PickUpApp.pdb
+/Users/tchevier3/Desktop/Github/PickUpApp/bin/Release/net6.0/publish/Microsoft.EntityFrameworkCore.dll
+/Users/tchevier3/Desktop/Github/PickUpApp/bin/Release/net6.0/publish/Microsoft.EntityFrameworkCore.Abstractions.dll
+/Users/tchevier3/Desktop/Github/PickUpApp/bin/Release/net6.0/publish/Microsoft.EntityFrameworkCore.Relational.dll
+/Users/tchevier3/Desktop/Github/PickUpApp/bin/Release/net6.0/publish/Microsoft.Extensions.Caching.Memory.dll
+/Users/tchevier3/Desktop/Github/PickUpApp/bin/Release/net6.0/publish/MySqlConnector.dll
+/Users/tchevier3/Desktop/Github/PickUpApp/bin/Release/net6.0/publish/Pomelo.EntityFrameworkCore.MySql.dll
+/Users/tchevier3/Desktop/Github/PickUpApp/bin/Release/net6.0/publish/PickUpApp.deps.json

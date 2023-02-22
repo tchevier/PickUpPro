@@ -1,0 +1,22 @@
+@model LoginAdmin
+<link rel="stylesheet" href="~/css/parentsAndAdmins.css"></link>
+<div id="container">
+    <div class="card ">
+        <div class="card-body">
+            <div class="card-title">
+                <h1 class="text-start title">Admin Sign in</h1>
+            </div>
+            <form asp-controller="Admins" asp-action="Login" method="POST">
+                <div class="form-floating mb-3">
+                    <input asp-for="LoginUsername" type="Username" class="form-control" id="floatingUsername" placeholder="Username">
+                    <label for="floatingUsername"><i class="fa-solid fa-envelope me-1"></i> Username <span asp-validation-for="LoginUsername" class="text-danger font-weight-bold"></span></label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="LoginPassword" type="Password" class="form-control" id="floatingPassword" placeholder="Password">
+                    <label for="floatingPassword"><i class="fa-solid fa-lock me-1"></i> Password <span asp-validation-for="LoginPassword" class="text-danger font-weight-bold"></span></label>
+                </div>
+                <button type="submit" id="submit-btn">Sign in</button>
+            </form>
+        </div>
+    </div>
+</div>

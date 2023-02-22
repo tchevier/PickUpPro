@@ -1,0 +1,18 @@
+@model Parent
+
+<link rel="stylesheet" href="~/css/parentsAndAdmins.css"></link>
+
+<h1 id="banner-title" class="ms-5 mt-5">Inbox</h1>
+<div class="ms-5 me-5 bg-light pt-5 pb-5 rounded">
+@foreach (Message message in @Model.Messages)
+    {
+        @if(message.Content.Contains("confirmed"))
+        {
+            <p class="alert alert-success">@message.Content</p>
+        }
+        @if(message.Content.Contains("denied"))
+        {
+            <p class="alert alert-danger">@message.Content</p>
+        }
+    }
+</div>

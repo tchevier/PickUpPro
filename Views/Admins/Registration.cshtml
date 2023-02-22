@@ -1,0 +1,29 @@
+@model Admin
+<link rel="stylesheet" href="~/css/parentsAndAdmins.css"></link>
+<div id="container">
+    <div class="card ">
+        <div class="card-body">
+            <div class="card-title">
+                <h1 class="text-start title">Admin Sign up</h1>
+            </div>
+            <form asp-controller="Admins" asp-action="Register" method="POST">
+                <div class="form-floating mb-3">
+                    <input asp-for="Username" class="form-control" id="floatingUsername" placeholder="Username">
+                    <label for="floatingUsername"><i class="fa-solid fa-envelope me-1"></i> Username <span asp-validation-for="Username" class="text-danger font-weight-bold"></span></label>
+                    
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Password" class="form-control" id="floatingPassword" placeholder="Password">
+                    <label for="floatingPassword"><i class="fa-solid fa-lock me-1"></i> Password <span asp-validation-for="Password" class="text-danger font-weight-bold"></span></label>
+                    
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="ConfirmPassword" type="Password" class="form-control" id="floatingPasswordConfirm" placeholder="Confirm Password">
+                    <label for="floatingPasswordConfirm"><i class="fa-solid fa-lock-open me-1"></i>Confirm Password <span asp-validation-for="ConfirmPassword" class="text-danger font-weight-bold"></span></label>
+                    
+                </div>
+                <button type="submit" id="submit-btn">Sign up</button>
+            </form>
+        </div>
+    </div>
+</div>

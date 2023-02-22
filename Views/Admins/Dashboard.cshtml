@@ -1,0 +1,14 @@
+@model Admin
+<link rel="stylesheet" href="~/css/parentsAndAdmins.css"></link>
+
+<div class="container mt-5">
+    <h1 id="banner-title" class="text-center">Welcome, Admin</h1>
+    <div class="d-flex flex-column justify-content-center align-items-center gap-3">
+        <a id="confirm-database-btn" class="btn btn-success" asp-area="" asp-controller="Admins" asp-action="ConfirmStudentDashboard">Confirm Students to Database <i class="fas fa-database ms-3"></i></a>
+        <a id="confirm-pickup-btn"class="btn btn-warning" asp-area="" asp-controller="Admins" asp-action="ConfirmStudentPickupDashboard">Confirm Student Pickup <i class="fas fa-car ms-3"></i></a>
+        <form asp-action="ResetStudentPickups" asp-controller="Admins" asp-route-AdminId="@Model.AdminId">
+            <button id="confirm-pickup-btn" class="btn bg-danger">Reset Pickup Confirmations</button>
+        </form>
+    </div>
+        
+</div>

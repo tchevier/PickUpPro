@@ -1,0 +1,129 @@
+@model Parent
+<link rel="stylesheet" href="~/css/parentsAndAdmins.css"></link>
+
+@* Count for the number of students to be confirmed to database*@
+@{int count = 0;}
+
+<div class="table-container">
+            <h1 id="banner-title" class="mb-0 dashboard-title">Welcome, @Model.FullName()</h1>
+@* If there are any students show them on the list *@
+    <div class="d-flex align-items-center justify-content-start gap-3 mt-5 mb-5">
+        <h2 id="banner-title" class="dashboard-title float-start table-title m-0">My Students </h2>
+        <a id="add-btn" href="/parents/students" class="btn btn-primary">Add Student</a>
+    </div>
+@if(@Model.Students.Count > 0)
+{
+    <table class="table">
+        <tr class="table-header">
+            <th>Student's Name</th>
+            <th>Number</th>
+            <th>Actions</th>
+        </tr>
+    <tbody class="table-content">
+
+    @foreach (Student student in @Model.Students)
+    {
+        @* add to count if student is not confirmed to database *@
+        @if(@student.isConfirmed == 0)
+        {
+            count ++;
+        }
+        @* If student is confirmed by admin to database *@
+        @if(@student.isConfirmed == 1)
+        {
+            <tr class="table-row">
+            <td class="table-data">@student.FullName()</td>
+            <td class="table-data">@student.StudentNumber</td>
+            <td class="d-flex align-items-center justify-content-around">
+                @* if student is not being requested for pickup and student is not confirmed for pickup*@
+                @if(@student.isRequestedForPickup == 0 && @student.isPickupConfirmed == 0)
+                {
+                    <button id="request-btn" class="btn btn-warning" onclick="renderAlert('uncover')">Request Pickup</button>
+                    <div id="alert" class="alert-content hide">
+                        <h2 class="text-center">Are you sure?</h2><hr />
+                        <p>If you are not at the school, please do not request a pickup!</p> 
+                        <div class="d-flex justify-content-around mt-5">
+                            <form asp-controller="Parents" asp-action="RequestPickup" asp-route-requestedStudentId="@student.StudentId" method="POST">
+                            <button class="btn btn-success">Confirm</button>
+                            </form>
+                            <button class="btn btn-danger" onclick="renderAlert('hide')">Cancel</button> 
+                        </div>
+                    </div>
+                }
+                @* if student is being requested for pickup and the pickup isn't confirmed yet *@
+                @if(@student.isRequestedForPickup == 1 && @student.isPickupConfirmed == 0)
+                {
+                    <p class="align-middle m-0">Waiting For Confirmation</p>
+                }
+                @* if student no longer being requested for pickup and the pickup is confirmed *@
+                @if(@student.isRequestedForPickup == 0 && @student.isPickupConfirmed == 1)
+                {
+                    <p class="text-success align-middle m-0">Confirmed Pickup</p>
+                }
+                <form asp-controller="Parents" asp-action="DeleteStudent" asp-route-deletedStudentId="@student.StudentId" method="POST">
+                    <button id="delete-btn" class="btn btn-danger">Delete</button>
+                </form>
+            </td>
+        </tr>
+        }
+    }
+        </tbody>
+    </table>
+}
+@* If the parents have students being requested, display the requested table *@
+@if(count > 0)
+{
+    <h2 id="banner-title" class="mt-5 mb-5 float-start table-title dashboard-title">Requested Students</h2>
+    <table class="table">
+        <tr class="table-header">
+            <th>Student's Name</th>
+            <th>Number</th>
+            <th>Status</th>
+        </tr>
+
+        <tbody class="table-content">
+        @foreach (Student student in @Model.Students)
+        {
+        if(@student.isConfirmed == 0)
+            {
+            <tr class="table-row">
+                <td class="table-data">@student.FullName()</td>
+                <td class="table-data">@student.StudentNumber</td>
+                <td class="table-data">Student Is Being Reviewed</td>
+            </tr>
+            }
+        }
+        </tbody>
+    </table>
+}
+</div>
+@section scripts {
+    
+
+<script type="text/javascript">
+
+    function renderAlert(setting)
+
+    {
+        console.log(setting);
+        switch(setting){
+            case "uncover":
+            document.getElementById('alert').classList.remove('hide')
+            document.body.style.backgroundColor = 'rgba(0,0,0,0.5)';
+            document.body.style.transition = 'background-color 0.3s ease-in';
+            
+            break;
+            case "hide": 
+            document.getElementById('alert').classList.add('hide')
+            document.body.style.backgroundColor = 'rgb(0, 187, 255)';
+            document.body.style.transition = 'background-color 0.3s ease-in';
+            break;
+            default:
+        }
+
+    }
+
+</script>
+
+}
+

@@ -1,0 +1,40 @@
+@model Parent
+<link rel="stylesheet" href="~/css/parentsAndAdmins.css"></link>
+<div id="container">
+    <div class="card">
+        <div class="card-body">
+            <div class="card-title">
+                <h1 class="text-start title">Parent Sign up</h1>
+            </div>
+            <form asp-controller="Parents" asp-action="Register" method="POST">
+                <div class="form-floating mb-3">
+                    <input asp-for="FirstName" class="form-control" id="floatingFirst" placeholder="First Name">
+                    <label for="floatingFirst"><i class="fa-solid fa-user me-1"></i> First Name <span asp-validation-for="FirstName" class="text-danger font-weight-bold"></span></label>
+                    
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="LastName" class="form-control" id="floatingLast" placeholder="last Name">
+                    <label for="floatingLast ms-3"><i class="fa-regular fa-user me-1"></i> Last Name <span asp-validation-for="LastName" class="text-danger font-weight-bold"></span></label>
+                    
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Email" class="form-control" id="floatingEmail" placeholder="Email">
+                    <label for="floatingEmail"><i class="fa-solid fa-envelope me-1"></i> Email <span asp-validation-for="Email" class="text-danger font-weight-bold"></span></label>
+                    
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Password" class="form-control" id="floatingPassword" placeholder="Password">
+                    <label for="floatingPassword"><i class="fa-solid fa-lock me-1"></i> Password <span asp-validation-for="Password" class="text-danger font-weight-bold"></span></label>
+                    
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="ConfirmPassword" type="Password" class="form-control" id="floatingPasswordConfirm" placeholder="Confirm Password">
+                    <label for="floatingPasswordConfirm"><i class="fa-solid fa-lock-open me-1"></i>Confirm Password <span asp-validation-for="ConfirmPassword" class="text-danger font-weight-bold"></span></label>
+                    
+                </div>
+                <div id="emailHelp" class="form-text mb-3">Already have an account? <a class="text-dark" href="/parents/login">Login Here</a></div>
+                <button type="submit" id="submit-btn">Sign up</button>
+            </form>
+        </div>
+    </div>
+</div>

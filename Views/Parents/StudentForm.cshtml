@@ -1,0 +1,33 @@
+@model Student
+<link rel="stylesheet" href="~/css/parentsAndAdmins.css"></link>
+
+<div id="container">
+    <div class="card ">
+        <div class="card-body">
+            <div class="card-title">
+                <h1 class="text-start mt-5 mb-5">Add a Student</h1>
+            </div>
+            <form asp-controller="Parents" asp-action="RequestStudent" method="POST">
+                <input asp-for="ParentId" class="form-control" id="floatingFirst" type="hidden" value="@ViewBag.ParentId">
+                                <input asp-for="ParentFullName" class="form-control" id="floatingFirst" type="hidden" value="@ViewBag.ParentFullName">
+
+                <div class="form-floating mb-3">
+                    <input asp-for="FirstName" class="form-control" id="floatingFirst" placeholder="First Name">
+                    <label for="floatingFirst"><i class="fa-solid fa-user me-1"></i> First Name <span asp-validation-for="FirstName" class="text-danger font-weight-bold"></span></label>
+                    
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="LastName" class="form-control" id="floatingLast" placeholder="last Name">
+                    <label for="floatingLast ms-3"><i class="fa-regular fa-user me-1"></i> Last Name <span asp-validation-for="LastName" class="text-danger font-weight-bold"></span></label>
+                    
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="StudentNumber" class="form-control" id="floatingNumber" placeholder="StudentNumber">
+                    <label for="floatingNumber"><i class="fa-solid fa-hashtag me-1"></i> Student Number <span asp-validation-for="StudentNumber" class="text-danger font-weight-bold"></span></label>
+                    
+                </div>
+                <button type="submit" class="btn btn-outline-primary mb-5">Request Student</button>
+            </form>
+        </div>
+    </div>
+</div>
